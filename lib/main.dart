@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -35,10 +36,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   // function for opening it in google maps
-
   void googleMap() async {
-    String googleUrl =
-        "https://www.google.com/maps/search/?api=1&query=$latitude,$longitude";
+    String googleUrl = "https://www.google.com/maps/search/?api=1&query=$latitude,$longitude";
 
     if (await canLaunch(googleUrl)) {
       await launch(googleUrl);
@@ -61,34 +60,12 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.location_on,
-                size: 45.0,
-                color: Colors.white,
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Text(
-                "Get User Location",
-                style: TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(
-                height: 30.0,
-              ),
-              Text(
-                locationMessage,
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(
-                height: 05.0,
-              ),
+              Icon(Icons.location_on, size: 45.0, color: Colors.white,),
+              SizedBox(height: 20.0,),
+              Text( "Get User Location", style: TextStyle( fontSize: 25.0, fontWeight: FontWeight.bold, color: Colors.white,),),
+              SizedBox(height: 30.0,),
+              Text(locationMessage, style: TextStyle(color: Colors.white),),
+              SizedBox(height: 05.0,),
 
               // button for taking the location
               FlatButton(
@@ -98,7 +75,7 @@ class _MyAppState extends State<MyApp> {
                 },
                 child: Text("Get User Location"),
               ),
-            
+
               FlatButton(
                 color: Colors.white,
                 onPressed: () {
@@ -106,6 +83,7 @@ class _MyAppState extends State<MyApp> {
                 },
                 child: Text("Open GoogleMap"),
               ),
+              SizedBox(height: 30,)
             ],
           ),
         ),
